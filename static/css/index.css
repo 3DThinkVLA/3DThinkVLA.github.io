@@ -167,16 +167,26 @@ a {
   padding: 0.35rem;
 }
 
-.video-grid {
-  margin-top: 0.25rem;
-  margin-bottom: 1.25rem;
+.rollout-group {
+  margin-bottom: 1.5rem;
+}
+
+.rollout-group .title {
+  margin-bottom: 0.75rem;
+}
+
+.rollout-row {
+  display: flex;
+  gap: 0.9rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
 }
 
 .video-card {
   background: #fff;
   border: 1px solid var(--panel-border);
   border-radius: 12px;
-  height: 100%;
+  flex: 0 0 280px;
   overflow: hidden;
   padding: 0.5rem;
 }
