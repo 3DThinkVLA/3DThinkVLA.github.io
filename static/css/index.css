@@ -200,23 +200,27 @@ a {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.75rem;
-  scrollbar-color: #a8b9d6 #edf2f8;
+  scrollbar-color: #bcc9dd transparent;
   scrollbar-width: thin;
 }
 
 .rollout-row::-webkit-scrollbar {
-  height: 12px;
+  height: 7px;
 }
 
 .rollout-row::-webkit-scrollbar-track {
-  background: #edf2f8;
+  background: transparent;
   border-radius: 999px;
 }
 
 .rollout-row::-webkit-scrollbar-thumb {
-  background: #a8b9d6;
-  border: 2px solid #edf2f8;
+  background: rgba(138, 159, 191, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 999px;
+}
+
+.rollout-row::-webkit-scrollbar-thumb:hover {
+  background: rgba(114, 136, 171, 0.9);
 }
 
 .video-card {
