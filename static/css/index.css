@@ -25,17 +25,6 @@ a {
   color: var(--accent);
 }
 
-.eyebrow,
-.section-kicker {
-  color: #6a7b95;
-  font-family: 'Google Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.65rem;
-  text-transform: uppercase;
-}
-
 .site-navbar {
   background: rgba(247, 248, 251, 0.92);
   backdrop-filter: blur(8px);
