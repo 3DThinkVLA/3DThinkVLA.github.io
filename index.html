@@ -130,9 +130,18 @@
           <p>
             The paper highlights a prompt-induced reasoning gap: even when co-training on 3D data improves spatial knowledge, standard action prompts can cause the policy to fall back to action shortcuts rather than activating true 3D reasoning. 3DThinkVLA is designed to bridge this gap by transferring spatial thinking into the latent action-prediction path.
           </p>
-          <img src="./static/images/motivation-figure.png"
-               class="figure-image"
-               alt="3DThinkVLA motivation figure">
+          <div class="pdf-figure-frame">
+            <object data="./intro.pdf#view=FitH"
+                    type="application/pdf"
+                    class="pdf-figure">
+              <img src="./static/images/motivation-figure.png"
+                   class="figure-image"
+                   alt="3DThinkVLA motivation figure">
+            </object>
+          </div>
+          <p class="figure-caption">
+            Figure 1: Overview. (a) Our framework co-trains the VLM backbone on VLA data and real-world 3D reasoning data to enhance embodied spatial intelligence. (b) We identify a prompt-induced reasoning gap in vanilla co-training, where the model tends to learn action shortcuts and deactivates its spatial perception when triggered by action prompts. (c) Our method bridges this gap by utilizing a reasoning adapter and online latent distillation to inject 3D spatial thinking into action prediction without requiring explicit text generation. (d)-(e) Qualitative results on LIBERO and LIBERO-PLUS benchmarks demonstrate that while the co-train-only model exhibits scattered attention or focuses on task-irrelevant areas like the robot arm, our method focuses precisely on task-relevant objects and their 3D spatial structures, leading to more robust manipulation.
+          </p>
         </div>
       </div>
     </div>
@@ -145,9 +154,18 @@
       <div class="column section-panel">
         <div class="content">
           <h2 class="title is-3">Method</h2>
-          <img src="./static/images/method-figure.png"
-               class="figure-image"
-               alt="3DThinkVLA method figure">
+          <div class="pdf-figure-frame">
+            <object data="./overallarch.pdf#view=FitH"
+                    type="application/pdf"
+                    class="pdf-figure">
+              <img src="./static/images/method-figure.png"
+                   class="figure-image"
+                   alt="3DThinkVLA method figure">
+            </object>
+          </div>
+          <p class="figure-caption">
+            Figure 2: Our 3D-thinking-guided framework disentangles geometric perception and spatial reasoning to enhance VLA models. (a) The VLM backbone is co-trained on VLA and 3D data, internalizing spatial intelligence through explicit 3D reasoning tasks. (b) A Geometry Adapter aligns visual features with a 3D foundation model (VGGT) via patch-level latent alignment to capture low-level geometric priors. (c) Online distillation transfers high-level reasoning from teacher prompts to student action prompts via a shared anchor token, bridging the prompt-induced reasoning gap. (d) Disentangled reasoning and geometry features are jointly injected into the action head as hierarchical conditions to guide prediction and prevent action shortcuts. At inference, auxiliary modules are discarded, enabling efficient implicit 3D reasoning from 2D images via lightweight adapters.
+          </p>
           <div class="box method-box">
             <h3 class="title is-5">Latent 3D Geometry Perception</h3>
             <p>
