@@ -100,14 +100,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose a 3D-thinking-guided co-training framework that enables vision-language-action (VLA) models to perform 3D spatial reasoning implicitly during action prediction.
-            Our core insight is that 3D geometry perception and 3D spatial reasoning are distinct capabilities that can be disentangled and injected at different feature hierarchies.
+            We propose a 3D-thinking-guided co-training framework that enables vision-language-action (VLA) models to perform 3D spatial reasoning implicitly during action prediction. Our core insight is that 3D geometry perception and 3D spatial reasoning are distinct capabilities that can be disentangled and injected at different feature hierarchies.
           </p>
           <p>
-            During training, three tightly coupled components work in concert primarily within the latent space: a latent 3D geometry perception module aligns intermediate visual features with a 3D foundation model, an online 3D reasoning distillation module transfers high-level spatial thinking through a shared reasoning anchor token, and a spatially augmented action integration module injects these priors into action-query tokens.
+            During training, three tightly coupled components work in concert primarily within the latent space: (1) To gain geometric priors, a latent 3D geometry perception module aligns intermediate visual features with a 3D foundation model, acquiring low-level geometric cues without requiring architectural modifications to the VLM backbone. (2) Complementing this perception, an online 3D reasoning distillation module mitigates the prompt-induced reasoning gap via a shared reasoning anchor token. During 3D VLM co-training, this anchor is emitted as the first output token to robustly encode spatial priors. During VLA training, it serves as an input token inserted between the task and action instructions, transferring high-level spatial thinking from explicit teacher reasoning prompts to student action prompts without requiring chain-of-thought text generation.
           </p>
           <p>
-            At deployment, 3DThinkVLA retains only lightweight adapters and operates purely on 2D images without requiring 3D sensors, external foundation models, or explicit text generation, while achieving state-of-the-art results on LIBERO, LIBERO-PLUS, SimplerEnv, and challenging real-world manipulation tasks.
+            (3) These disentangled geometric and reasoning features are then united by a spatially augmented action integration, which jointly injects them into the action-query tokens as hierarchical spatial conditions to prevent action shortcuts. At deployment, our method retains only its lightweight adapters to perform implicit 3D reasoning, discarding the 3D foundation model and the teacher branch used for supervision. Consequently, it operates purely on 2D images without requiring 3D sensors, external foundation models, or explicit text generation while effectively preventing catastrophic forgetting of the pretrained VLM, achieving state-of-the-art performance on LIBERO, LIBERO-PLUS, SimplerEnv, and challenging real-world manipulation tasks.
           </p>
         </div>
       </div>
@@ -313,11 +312,6 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="./static/pdfs/NeurIPS_3DThinkVLA.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
