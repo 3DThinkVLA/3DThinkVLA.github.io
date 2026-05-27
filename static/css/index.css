@@ -190,6 +190,7 @@ a {
   gap: 0.9rem;
   overflow-x: auto;
   padding: 0.75rem;
+  padding-bottom: 0.9rem;
   scrollbar-color: #a8b9d6 #edf2f8;
   scrollbar-width: thin;
 }
@@ -205,6 +206,34 @@ a {
 
 .rollout-row::-webkit-scrollbar-thumb {
   background: #a8b9d6;
+  border: 2px solid #edf2f8;
+  border-radius: 999px;
+}
+
+.rollout-scrollbar {
+  background: #edf2f8;
+  border-radius: 999px;
+  height: 14px;
+  margin-top: 0.45rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.rollout-scrollbar-inner {
+  height: 1px;
+}
+
+.rollout-scrollbar::-webkit-scrollbar {
+  height: 14px;
+}
+
+.rollout-scrollbar::-webkit-scrollbar-track {
+  background: #edf2f8;
+  border-radius: 999px;
+}
+
+.rollout-scrollbar::-webkit-scrollbar-thumb {
+  background: #8ea8cf;
   border: 2px solid #edf2f8;
   border-radius: 999px;
 }
