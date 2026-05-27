@@ -118,6 +118,23 @@ body {
   margin: 1rem 0 1.5rem;
 }
 
+.result-table {
+  font-size: 0.92rem;
+}
+
+.result-table th {
+  font-family: 'Google Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.result-table td {
+  vertical-align: middle;
+}
+
+.ours-row {
+  font-weight: 700;
+}
+
 .method-box h3 {
   margin-top: 1rem;
 }
