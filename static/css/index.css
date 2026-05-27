@@ -302,6 +302,7 @@ a {
 .result-table {
   font-size: 0.92rem;
   margin-bottom: 0.35rem;
+  text-align: center;
 }
 
 .result-table thead th {
@@ -311,6 +312,11 @@ a {
   font-family: 'Google Sans', sans-serif;
   text-align: center;
   white-space: nowrap;
+}
+
+.result-table th,
+.result-table td {
+  text-align: center !important;
 }
 
 .result-table tbody tr:nth-child(even) {
