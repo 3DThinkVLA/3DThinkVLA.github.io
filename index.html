@@ -177,6 +177,33 @@
             Below are the main benchmark tables from the paper, including simulation benchmarks, SimplerEnv evaluation, and the ablation study. Real-world results are omitted here.
           </p>
         </div>
+        <h3 class="title is-4">Simulation Rollouts</h3>
+        <div class="columns is-multiline video-grid">
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="video-card">
+              <video controls playsinline muted preload="metadata">
+                <source src="./SImResults/LIBERO/rollout_pick_up_the_bbq_sauce_and_place_it_in_the_basket_episode1_success.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">LIBERO: pick up the BBQ sauce and place it in the basket</p>
+            </div>
+          </div>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="video-card">
+              <video controls playsinline muted preload="metadata">
+                <source src="./SImResults/LIBERO-PLUS/rollout_t50_e0_success_ae1b8606c7.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">LIBERO-PLUS: representative successful rollout under perturbation</p>
+            </div>
+          </div>
+          <div class="column is-4-desktop is-6-tablet">
+            <div class="video-card">
+              <video controls playsinline muted preload="metadata">
+                <source src="./SImResults/SimplerENV/success_obj_episode_19_moved_correct_obj_True_moved_wrong_obj_False_is_src_obj_grasped_True_consecutive_grasp_True_src_on_target_True.mp4" type="video/mp4">
+              </video>
+              <p class="video-caption">SimplerENV: successful object manipulation rollout</p>
+            </div>
+          </div>
+        </div>
         <h3 class="title is-4">LIBERO Benchmark</h3>
         <div class="table-container">
           <table class="table is-fullwidth is-striped is-hoverable result-table">
