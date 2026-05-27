@@ -188,6 +188,31 @@ a {
   text-align: right;
 }
 
+.rollout-shell {
+  position: relative;
+}
+
+.rollout-shell::before,
+.rollout-shell::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  width: 28px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rollout-shell::before {
+  left: 1px;
+  background: linear-gradient(90deg, rgba(245, 248, 252, 0.95) 0%, rgba(245, 248, 252, 0) 100%);
+}
+
+.rollout-shell::after {
+  right: 1px;
+  background: linear-gradient(270deg, rgba(245, 248, 252, 0.95) 0%, rgba(245, 248, 252, 0) 100%);
+}
+
 .rollout-row {
   background: linear-gradient(180deg, #fbfcfe 0%, #f5f8fc 100%);
   border: 1px solid var(--panel-border);
@@ -199,28 +224,13 @@ a {
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.75rem 0.75rem 0.45rem;
-  scrollbar-color: rgba(168, 182, 205, 0.55) transparent;
-  scrollbar-width: thin;
+  padding: 0.75rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .rollout-row::-webkit-scrollbar {
-  height: 4px;
-}
-
-.rollout-row::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 999px;
-}
-
-.rollout-row::-webkit-scrollbar-thumb {
-  background: rgba(168, 182, 205, 0.55);
-  border: 0;
-  border-radius: 999px;
-}
-
-.rollout-row::-webkit-scrollbar-thumb:hover {
-  background: rgba(138, 154, 180, 0.72);
+  display: none;
 }
 
 .video-card {
