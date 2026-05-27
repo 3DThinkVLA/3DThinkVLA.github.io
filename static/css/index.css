@@ -175,11 +175,38 @@ a {
   margin-bottom: 0.75rem;
 }
 
+.rollout-scroll-hint {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
 .rollout-row {
+  background: linear-gradient(180deg, #fbfcfe 0%, #f5f8fc 100%);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
   display: flex;
   gap: 0.9rem;
   overflow-x: auto;
-  padding-bottom: 0.35rem;
+  padding: 0.75rem;
+  scrollbar-color: #a8b9d6 #edf2f8;
+  scrollbar-width: thin;
+}
+
+.rollout-row::-webkit-scrollbar {
+  height: 12px;
+}
+
+.rollout-row::-webkit-scrollbar-track {
+  background: #edf2f8;
+  border-radius: 999px;
+}
+
+.rollout-row::-webkit-scrollbar-thumb {
+  background: #a8b9d6;
+  border: 2px solid #edf2f8;
+  border-radius: 999px;
 }
 
 .video-card {

@@ -100,13 +100,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose a 3D-thinking-guided co-training framework that enables vision-language-action (VLA) models to perform 3D spatial reasoning implicitly during action prediction. Our core insight is that 3D geometry perception and 3D spatial reasoning are distinct capabilities that can be disentangled and injected at different feature hierarchies.
-          </p>
-          <p>
-            During training, three tightly coupled components work in concert primarily within the latent space: (1) To gain geometric priors, a latent 3D geometry perception module aligns intermediate visual features with a 3D foundation model, acquiring low-level geometric cues without requiring architectural modifications to the VLM backbone. (2) Complementing this perception, an online 3D reasoning distillation module mitigates the prompt-induced reasoning gap via a shared reasoning anchor token. During 3D VLM co-training, this anchor is emitted as the first output token to robustly encode spatial priors. During VLA training, it serves as an input token inserted between the task and action instructions, transferring high-level spatial thinking from explicit teacher reasoning prompts to student action prompts without requiring chain-of-thought text generation.
-          </p>
-          <p>
-            (3) These disentangled geometric and reasoning features are then united by a spatially augmented action integration, which jointly injects them into the action-query tokens as hierarchical spatial conditions to prevent action shortcuts. At deployment, our method retains only its lightweight adapters to perform implicit 3D reasoning, discarding the 3D foundation model and the teacher branch used for supervision. Consequently, it operates purely on 2D images without requiring 3D sensors, external foundation models, or explicit text generation while effectively preventing catastrophic forgetting of the pretrained VLM, achieving state-of-the-art performance on LIBERO, LIBERO-PLUS, SimplerEnv, and challenging real-world manipulation tasks.
+            We propose a 3D-thinking-guided co-training framework that enables vision-language-action (VLA) models to perform 3D spatial reasoning implicitly during action prediction. Our core insight is that 3D geometry perception and 3D spatial reasoning are distinct capabilities that can be disentangled and injected at different feature hierarchies. During training, three tightly coupled components work in concert primarily within the latent space: (1) To gain geometric priors, a latent 3D geometry perception module aligns intermediate visual features with a 3D foundation model, acquiring low-level geometric cues without requiring architectural modifications to the VLM backbone. (2) Complementing this perception, an online 3D reasoning distillation module mitigates the prompt-induced reasoning gap via a shared reasoning anchor token. During 3D VLM co-training, this anchor is emitted as the first output token to robustly encode spatial priors. During VLA training, it serves as an input token inserted between the task and action instructions, transferring high-level spatial thinking from explicit teacher reasoning prompts to student action prompts without requiring chain-of-thought text generation. (3) These disentangled geometric and reasoning features are then united by a spatially augmented action integration, which jointly injects them into the action-query tokens as hierarchical spatial conditions to prevent action shortcuts. At deployment, our method retains only its lightweight adapters to perform implicit 3D reasoning, discarding the 3D foundation model and the teacher branch used for supervision. Consequently, it operates purely on 2D images without requiring 3D sensors, external foundation models, or explicit text generation while effectively preventing catastrophic forgetting of the pretrained VLM, achieving state-of-the-art performance on LIBERO, LIBERO-PLUS, SimplerEnv, and challenging real-world manipulation tasks.
           </p>
         </div>
       </div>
@@ -180,6 +174,7 @@
         <h3 class="title is-4">Simulation Rollouts</h3>
         <div class="rollout-group">
           <h4 class="title is-5">LIBERO</h4>
+          <div class="rollout-scroll-hint">Scroll horizontally to view all videos</div>
           <div class="rollout-row">
             <div class="video-card"><video controls playsinline muted preload="metadata"><source src="./SImResults/LIBERO/rollout_open_the_middle_drawer_of_the_cabinet_episode14_success.mp4" type="video/mp4"></video><p class="video-caption">Open the middle drawer of the cabinet</p></div>
             <div class="video-card"><video controls playsinline muted preload="metadata"><source src="./SImResults/LIBERO/rollout_open_the_top_drawer_and_put_the_bowl_inside_episode22_success.mp4" type="video/mp4"></video><p class="video-caption">Open the top drawer and put the bowl inside</p></div>
@@ -198,6 +193,7 @@
         </div>
         <div class="rollout-group">
           <h4 class="title is-5">LIBERO-PLUS</h4>
+          <div class="rollout-scroll-hint">Scroll horizontally to view all videos</div>
           <div class="rollout-row">
             <div class="video-card"><video controls playsinline muted preload="metadata"><source src="./SImResults/LIBERO-PLUS/rollout_t12_e0_success_8652d814eb.mp4" type="video/mp4"></video><p class="video-caption">Rollout t12</p></div>
             <div class="video-card"><video controls playsinline muted preload="metadata"><source src="./SImResults/LIBERO-PLUS/rollout_t50_e0_success_ae1b8606c7.mp4" type="video/mp4"></video><p class="video-caption">Rollout t50</p></div>
@@ -218,6 +214,7 @@
         </div>
         <div class="rollout-group">
           <h4 class="title is-5">SimplerENV</h4>
+          <div class="rollout-scroll-hint">Scroll horizontally to view all videos</div>
           <div class="rollout-row">
             <div class="video-card"><video controls playsinline muted preload="metadata"><source src="./SImResults/SimplerENV/success_obj_episode_2_moved_correct_obj_True_moved_wrong_obj_False_is_src_obj_grasped_True_consecutive_grasp_True_src_on_target_True.mp4" type="video/mp4"></video><p class="video-caption">Episode 2</p></div>
             <div class="video-card"><video controls playsinline muted preload="metadata"><source src="./SImResults/SimplerENV/success_obj_episode_3_moved_correct_obj_True_moved_wrong_obj_False_is_src_obj_grasped_True_consecutive_grasp_True_src_on_target_True.mp4" type="video/mp4"></video><p class="video-caption">Episode 3</p></div>
