@@ -367,8 +367,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <div class="section-panel bibtex-panel">
+    <div class="bibtex-header">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{3dthinkvla2026,
+    <button class="button is-small is-rounded bibtex-copy-button" id="bibtex-copy-button" type="button">Copy</button>
+    </div>
+    <pre><code id="bibtex-code">@article{3dthinkvla2026,
   title   = {3DThinkVLA: Endowing Vision-Language-Action Models with Latent 3D Priors via 3D-Thinking-Guided Co-training},
   author  = {Anonymous Author(s)},
   journal = {Submitted to NeurIPS},
@@ -391,6 +394,27 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function() {
+    var copyButton = document.getElementById('bibtex-copy-button');
+    var bibtexCode = document.getElementById('bibtex-code');
+    if (!copyButton || !bibtexCode || !navigator.clipboard) return;
+
+    copyButton.addEventListener('click', async function() {
+      var originalText = copyButton.textContent;
+      try {
+        await navigator.clipboard.writeText(bibtexCode.textContent);
+        copyButton.textContent = 'Copied';
+      } catch (err) {
+        copyButton.textContent = 'Failed';
+      }
+      window.setTimeout(function() {
+        copyButton.textContent = originalText;
+      }, 1400);
+    });
+  })();
+</script>
 
 </body>
 </html>

@@ -334,6 +334,26 @@ a {
   font-weight: 700;
 }
 
+.bibtex-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bibtex-copy-button {
+  border-color: #d8e3f4;
+  color: var(--accent);
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+}
+
+.bibtex-copy-button:hover {
+  background: #eef4ff;
+  border-color: #c8d8f2;
+  color: #183963;
+}
+
 pre {
   background: #f5f7fb;
   border: 1px solid var(--panel-border);
