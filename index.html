@@ -67,79 +67,25 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="./static/pdfs/NeurIPS_3DThinkVLA.pdf"
+                <a href="#abstract"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-alt"></i>
                   </span>
                   <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="#method"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="javascript:void(0);"
+                   class="external-link button is-normal is-rounded is-dark is-disabled"
+                   aria-disabled="true">
                   <span class="icon">
-                    <i class="fas fa-project-diagram"></i>
+                    <i class="fab fa-github"></i>
                   </span>
-                  <span>Method</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#results"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-chart-line"></i>
-                  </span>
-                  <span>Results</span>
+                  <span>Code (Coming Soon)</span>
                 </a>
               </span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/paper-cover.png"
-           class="teaser-image"
-           alt="3DThinkVLA paper cover">
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">3DThinkVLA</span> teaches VLA models to perceive geometry, reason in 3D, and predict actions with latent spatial priors while keeping image-only deployment.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <div class="result-panel">
-            <h3>Latent 3D Geometry Perception</h3>
-            <p>Intermediate visual features are aligned with a 3D foundation model to absorb low-level geometric cues without changing the pretrained VLM backbone.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="result-panel">
-            <h3>Online 3D Reasoning Distillation</h3>
-            <p>A shared reasoning anchor token transfers explicit teacher-side 3D thinking into implicit student representations without requiring chain-of-thought generation at inference.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="result-panel">
-            <h3>Spatially Augmented Action Integration</h3>
-            <p>Disentangled geometry and reasoning priors are injected into action-query tokens to improve spatial grounding and reduce action shortcuts.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="result-panel">
-            <h3>Practical Deployment</h3>
-            <p>At test time the method runs with only 2D images, retaining the standard VLA inference path while benefiting from 3D-aware training.</p>
           </div>
         </div>
       </div>
@@ -169,40 +115,50 @@
   </div>
 </section>
 
+<section class="section" id="motivation">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Motivation</h2>
+          <p>
+            Vision-language-action models are strong at semantic understanding but still weak at spatially grounded manipulation. Existing 3D-aware approaches often inject geometry only at a low level, rely on external 3D sensors, or disturb the original vision-language alignment of the pretrained backbone.
+          </p>
+          <p>
+            The paper highlights a prompt-induced reasoning gap: even when co-training on 3D data improves spatial knowledge, standard action prompts can cause the policy to fall back to action shortcuts rather than activating true 3D reasoning. 3DThinkVLA is designed to bridge this gap by transferring spatial thinking into the latent action-prediction path.
+          </p>
+          <img src="./static/images/motivation-figure.png"
+               class="figure-image"
+               alt="3DThinkVLA motivation figure">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Method Overview</h2>
-          <p>
-            3DThinkVLA separates 3D capability learning into three complementary stages so that perception, reasoning, and action grounding can be trained without overwriting the pretrained VLM's semantic prior.
-          </p>
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/method-figure.png"
+               class="figure-image"
+               alt="3DThinkVLA method figure">
           <div class="box method-box">
-            <h3 class="title is-5">1. Latent 3D Geometry Perception</h3>
+            <h3 class="title is-5">Latent 3D Geometry Perception</h3>
             <p>
-              The model aligns intermediate visual features with a 3D foundation model to acquire low-level geometric cues while avoiding heavy architectural modifications.
+              A geometry adapter aligns intermediate visual features with a 3D foundation model, injecting low-level geometric priors without changing the pretrained VLM backbone.
             </p>
-            <h3 class="title is-5">2. Online 3D Reasoning Distillation</h3>
+            <h3 class="title is-5">Online 3D Reasoning Distillation</h3>
             <p>
-              A shared reasoning anchor token carries explicit teacher-side 3D reasoning into the student VLA, allowing spatial thinking to be distilled without deployment-time chain-of-thought generation.
+              A shared reasoning anchor token transfers explicit teacher-side 3D reasoning into student action prompts entirely in latent space, avoiding inference-time chain-of-thought text generation.
             </p>
-            <h3 class="title is-5">3. Spatially Augmented Action Integration</h3>
+            <h3 class="title is-5">Spatially Augmented Action Integration</h3>
             <p>
-              Geometric and reasoning priors are hierarchically injected into action-query tokens so the resulting policy remains spatially grounded and avoids shortcut behaviors.
+              Geometry and reasoning features are projected into the action latent space and injected into action-query tokens, improving spatial grounding and reducing shortcut behaviors.
             </p>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Key Properties</h2>
-        <div class="content has-text-justified">
-          <p>
-            The framework is designed to preserve pretrained knowledge, avoid catastrophic forgetting, and keep inference practical. The teacher branch and 3D foundation model are training-only components, so the final deployed system still accepts standard 2D observations.
-          </p>
         </div>
       </div>
     </div>
@@ -216,46 +172,21 @@
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <p>
-            3DThinkVLA achieves state-of-the-art performance on LIBERO and LIBERO-PLUS, demonstrates strong embodied robustness on SimplerEnv, and transfers effectively to challenging real-world manipulation tasks.
+            3DThinkVLA achieves state-of-the-art performance on LIBERO and LIBERO-PLUS, strong results on SimplerEnv, and robust transfer to real-world manipulation tasks.
           </p>
           <p>
-            These gains indicate that latent 3D priors improve both generalization and action grounding, while preserving the simplicity of image-only VLA deployment.
+            Below are the main benchmark tables from the paper, including simulation benchmarks, SimplerEnv evaluation, and ablations with real-world results.
           </p>
         </div>
-        <div class="columns is-centered benchmark-columns">
-          <div class="column">
-            <div class="box benchmark-box">
-              <h3 class="title is-5">LIBERO / LIBERO-PLUS</h3>
-              <p>Improved compositional generalization and stronger policy transfer across manipulation tasks.</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="box benchmark-box">
-              <h3 class="title is-5">SimplerEnv</h3>
-              <p>Better performance under spatial ambiguity and more robust embodied control behavior.</p>
-            </div>
-          </div>
-          <div class="column">
-            <div class="box benchmark-box">
-              <h3 class="title is-5">Real-world Tasks</h3>
-              <p>Practical transfer to challenging robot manipulation settings without extra 3D sensing at test time.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="paper">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Paper</h2>
-        <div class="publication-video paper-frame">
-          <iframe src="./static/pdfs/NeurIPS_3DThinkVLA.pdf"
-                  frameborder="0"></iframe>
-        </div>
+        <img src="./static/images/results-libero-tables.png"
+             class="figure-image"
+             alt="LIBERO and LIBERO-PLUS results tables">
+        <img src="./static/images/results-simplerenv-table.png"
+             class="figure-image"
+             alt="SimplerEnv results table">
+        <img src="./static/images/results-ablation-realworld.png"
+             class="figure-image"
+             alt="Ablation and real-world results">
       </div>
     </div>
   </div>

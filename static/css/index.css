@@ -82,6 +82,12 @@ body {
   margin-bottom: 1rem;
 }
 
+.is-disabled {
+  cursor: default;
+  opacity: 0.78;
+  pointer-events: none;
+}
+
 .result-panel {
   background: #fff;
   height: 100%;
@@ -104,23 +110,18 @@ body {
   background: #fafafa;
 }
 
+.figure-image {
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 1rem 0 1.5rem;
+}
+
 .method-box h3 {
   margin-top: 1rem;
 }
 
 .method-box h3:first-child {
   margin-top: 0;
-}
-
-.benchmark-columns {
-  margin-top: 1.5rem;
-}
-
-.benchmark-box {
-  height: 100%;
-  background: #fafafa;
-}
-
-.paper-frame iframe {
-  background: #fff;
 }
